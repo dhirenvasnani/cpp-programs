@@ -1,6 +1,5 @@
 #include <iostream>
 #include <fstream>
-#include <conio.h>
 using namespace std;
 
 class result {
@@ -29,11 +28,20 @@ class result {
 	
 	void calculate() {
 		smallest = english;
-		if (smallest < maths) smallest = maths;
-		if (smallest < cs1) smallest = cs1;
-		if (smallest < physics) smallest = physics;
-		if (smallest < chemistry) smallest = chemistry;
-		if (smallest < cs2) smallest = cs2;
+	    
+	    if (smallest > maths) {
+		    smallest = maths;
+	    } else if (smallest > cs1) {
+		    smallest = cs1;
+	    } else if (smallest > physics) {
+		    smallest = physics;
+	    } else if (smallest > chemistry) {
+		    smallest = chemistry;
+	    } else if (smallest > cs2) {
+		    smallest = cs2;
+	    } else {
+		   smallest = english;
+	    }    
 		
 		tot = english + maths + cs1 + physics + chemistry + cs2 - smallest;
 		percent = (tot/500) * 100;
@@ -94,12 +102,10 @@ int main() {
 	cout<<endl<<"Do you want to run the program again (y / n)? ";
 	cin>>y;
 		if (y == 'y') {
-		    clrscr();
-		    result obj1;
-		    obj1.getdata();
-		    obj1.calculate();
-		    obj1.display();
-		    obj1.save();
+		    obj.getdata();
+		    obj.calculate();
+		    obj.display();
+		    obj.save();
 		} else {
 		    cout<<"[Program Finished]";
 		}
