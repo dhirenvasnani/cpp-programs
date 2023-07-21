@@ -28,7 +28,7 @@ class result {
 		cout<<endl<<"------------------------"<<endl;
 	}
 	
-	void calculate() {
+	void best5() {
 		smallest = english;
 	    
 	    if (smallest > maths) {
@@ -45,10 +45,19 @@ class result {
 		   smallest = english;
 	    }    
 		
-		tot = english + maths + cs1 + physics + chemistry + cs2 - smallest;
-		percent = (tot/500) * 100;
 	}
 	
+	void calculate() {
+		tot = english + maths + cs1 + physics + chemistry + cs2 - smallest;
+		if (tot > 500) {
+			cout<<"Error: Total is Greater than 500!"<<endl;
+			loop();
+		}
+		
+		percent = (tot/500) * 100;
+	}
+		
+		
 	void display() {
 		
 		if (tot < 500) {
@@ -103,6 +112,7 @@ int main() {
 void execute() {
 	result obj;
 	obj.getdata();
+	obj.best5();
 	obj.calculate();
 	obj.display();
 	
