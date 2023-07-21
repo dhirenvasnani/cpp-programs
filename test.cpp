@@ -1,15 +1,16 @@
 #include <iostream>
 #include <fstream>
+#include <conio.h>
 using namespace std;
 
 class result {
 	public:
-	string name;
+	string name, surname;
 	float english, maths, cs1, physics, chemistry, cs2, smallest, tot, percent;
 	
 	void getdata() {
 		cout<<"Enter your full name: ";
-		cin>>name;
+		cin>>name>>surname;
 		cout<<"\nEnter the marks scored:- "<<endl;
 		cout<<"1. English: ";
 		cin>>english;
@@ -42,13 +43,14 @@ class result {
 		
 		if (tot < 500) {
 			cout<<"Result:- ";
-			cout<<"Student Name: "<<name;
+			cout<<"Student Name: "<<name<<" "<<surname;
 			cout<<endl<<"------------------------"<<endl;
 			cout<<"Marks Scored:- \n"<<"1. English: "<<english<<endl<<"2. Maths: "<<maths<<endl<<"3. Computer Science Paper 1: "<<cs1<<endl<<"4. Physics: "<<physics<<endl<<"5. Chemistry: "<<chemistry<<endl<<"6. Computer Science Paper 2: "<<cs2<<endl;
 			cout<<endl<<"------------------------"<<endl;
 			cout<<"Total Marks: "<<tot;
 			cout<<endl<<"------------------------"<<endl;
 			cout<<"Percetage: "<<percent<<"%";
+		    cout<<endl<<"------------------------"<<endl;	
 		} else {
 			cout<<"\nResult:- "<<endl;
 			cout<<"Error: Total marks are greater than 500!";
@@ -56,28 +58,51 @@ class result {
 	}
 	
 	void save() {
-		ofstream f1(name + " Result.txt");
-		f1<<"Result:- ";
-		f1<<"Student Name: "<<name;
+		ofstream f1(name + " " + surname + " Result.txt");
+		f1<<"Result:- "<<endl;
+		f1<<"Student Name: "<<name<<" "<<surname;
 		f1<<endl<<"------------------------"<<endl;
 		f1<<"Marks Scored:- \n"<<"1. English: "<<english<<endl<<"2. Maths: "<<maths<<endl<<"3. Computer Science Paper 1: "<<cs1<<endl<<"4. Physics: "<<physics<<endl<<"5. Chemistry: "<<chemistry<<endl<<"6. Computer Science Paper 2: "<<cs2<<endl;
 		f1<<endl<<"------------------------"<<endl;
 		f1<<"Total Marks: "<<tot;
 		f1<<endl<<"------------------------"<<endl;
 		f1<<"Percetage: "<<percent<<"%";
-		
-		cout<<endl<<"Result saved as "<<name<<" Result.txt";
+		cout<<endl<<"------------------------"<<endl;
+		cout<<"Result saved as "<<name<<" "<<surname<<" Result.txt";
+		cout<<endl<<"------------------------"<<endl;
 	}
 };
 
 int main() {
+	char y, save;
 	result obj;
 	obj.getdata();
 	obj.calculate();
 	obj.display();
-	obj.save();
+	
+	cout<<"Do you want to save the result (y/n)? ";
+	cin>>save;
+	if (save == 'y') {
+	    obj.save();
+	} else if (save == 'n') {
+	    cout<<"Result not saved.";
+	} else {
+	    cout<<"Error: Invalid Input";
+	}
+	
+	
+	cout<<endl<<"Do you want to run the program again (y / n)? ";
+	cin>>y;
+		if (y == 'y') {
+		    clrscr();
+		    result obj1;
+		    obj1.getdata();
+		    obj1.calculate();
+		    obj1.display();
+		    obj1.save();
+		} else {
+		    cout<<"[Program Finished]";
+		}
 	return 0;
-}
-		
-		
+}		
 		
