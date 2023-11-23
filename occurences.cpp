@@ -2,7 +2,7 @@
 using namespace std;
 
 int main() {
-	cout<<"Ouccurence Checker: "
+	cout<<"Occurence Checker: "
     int i, j = 0, s;
     char letter;
     cout << "Enter the length of the word: ";
