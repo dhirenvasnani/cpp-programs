@@ -7,7 +7,7 @@ using namespace std;
 class result {
 	public:
 	string name, surname;
-	float english, maths, cs1, physics, chemistry, cs2, smallest, tot, percent;
+	float english, maths, it, physics, chemistry, bio, smallest, tot, percent;
 	
 	void getdata() {
 		cout<<"Enter your full name: ";
@@ -17,14 +17,14 @@ class result {
 		cin>>english;
 		cout<<"2. Maths: ";
 		cin>>maths;
-		cout<<"3. Computer Science Paper 1: ";
-		cin>>cs1;
+		cout<<"3. Information Technology : ";
+		cin>>it;
 		cout<<"4. Physics: ";
 		cin>>physics;
 		cout<<"5. Chemistry: ";
 		cin>>chemistry;
-		cout<<"6. Computer Science Paper 2: ";
-		cin>>cs2;
+		cout<<"6. Biology : ";
+		cin>>bio;
 		cout<<endl<<"------------------------"<<endl;
 	}
 	
@@ -33,14 +33,14 @@ class result {
 	    
 	    if (smallest > maths) {
 		    smallest = maths;
-	    } else if (smallest > cs1) {
-		    smallest = cs1;
+	    } else if (smallest > it) {
+		    smallest = it;
 	    } else if (smallest > physics) {
 		    smallest = physics;
 	    } else if (smallest > chemistry) {
 		    smallest = chemistry;
-	    } else if (smallest > cs2) {
-		    smallest = cs2;
+	    } else if (smallest > bio) {
+		    smallest = bio;
 	    } else {
 		   smallest = english;
 	    }    
@@ -48,7 +48,7 @@ class result {
 	}
 	
 	void calculate() {
-		tot = english + maths + cs1 + physics + chemistry + cs2 - smallest;
+		tot = english + maths + it + physics + chemistry + bio - smallest;
 		if (tot > 500) {
 			cout<<"Error: Total is Greater than 500!"<<endl;
 			loop();
@@ -64,7 +64,7 @@ class result {
 			cout<<"Result:- ";
 			cout<<"Student Name: "<<name<<" "<<surname;
 			cout<<endl<<"------------------------"<<endl;
-			cout<<"Marks Scored:- \n"<<"1. English: "<<english<<endl<<"2. Maths: "<<maths<<endl<<"3. Computer Science Paper 1: "<<cs1<<endl<<"4. Physics: "<<physics<<endl<<"5. Chemistry: "<<chemistry<<endl<<"6. Computer Science Paper 2: "<<cs2<<endl;
+			cout<<"Marks Scored:- \n"<<"1. English: "<<english<<endl<<"2. Maths: "<<maths<<endl<<"3. Information Technology : "<<it<<endl<<"4. Physics: "<<physics<<endl<<"5. Chemistry: "<<chemistry<<endl<<"6. Biology : "<<bio<<endl;
 			cout<<endl<<"------------------------"<<endl;
 			cout<<"Total Marks (Out of 500): "<<tot;
 			cout<<endl<<"------------------------"<<endl;
@@ -81,7 +81,7 @@ class result {
 		f1<<"Result:- "<<endl;
 		f1<<"Student Name: "<<name<<" "<<surname;
 		f1<<endl<<"------------------------"<<endl;
-		f1<<"Marks Scored:- \n"<<"1. English: "<<english<<endl<<"2. Maths: "<<maths<<endl<<"3. Computer Science Paper 1: "<<cs1<<endl<<"4. Physics: "<<physics<<endl<<"5. Chemistry: "<<chemistry<<endl<<"6. Computer Science Paper 2: "<<cs2<<endl;
+		f1<<"Marks Scored:- \n"<<"1. English: "<<english<<endl<<"2. Maths: "<<maths<<endl<<"3. Information Technology : "<<it<<endl<<"4. Physics: "<<physics<<endl<<"5. Chemistry: "<<chemistry<<endl<<"6. Biology : "<<bio<<endl;
 		f1<<endl<<"------------------------"<<endl;
 		f1<<"Total Marks: "<<tot;
 		f1<<endl<<"------------------------"<<endl;
