@@ -4,13 +4,13 @@ using namespace std;
 
 int main() {
     int i, s;
-    cout<<"Palindrome Checker:- "<<endl;
-    cout<<"Palindrome simply means a word that reads the same backwards as forwards."<<endl;
-    cout<<"\nEnter the length of the word: ";
-    cin>>s;
+    cout << "Palindrome Checker:- "<<endl;
+    cout << "Palindrome simply means a word that reads the same backwards as forwards."<<endl;
+    cout << "\nEnter the length of the word: ";
+    cin >> s;
     char word[s], after[s], before[s];
-    cout<<"Enter the Word(Keep all the letters capital): ";
-    cin>>word;
+    cout << "Enter the Word(Keep all the letters capital): ";
+    cin >> word;
 
     for (i = 0; i < s; i++) {
         before[i] = word[i];
